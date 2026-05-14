@@ -10,8 +10,8 @@ console.log("has Razorpay_Secret?", Boolean(process.env.Razorpay_Secret));
 const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
 const razorpayKeySecret = process.env.RAZORPAY_KEY_SECRET;
 
-console.log("KEY:", !!process.env.RAZORPAY_KEY_ID);
-console.log("SECRET:", !!process.env.RAZORPAY_KEY_SECRET);
+console.log("KEY FOUND:", !!razorpayKeyId);
+console.log("SECRET FOUND:", !!razorpayKeySecret);
 if (!razorpayKeyId || !razorpayKeySecret) {
   // Fail fast with a clear message (instead of Razorpay SDK throwing)
   throw new Error(
