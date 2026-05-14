@@ -1,36 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
-import { connectDb } from "./database/db.js";
-import Razorpay from "razorpay";
 import cors from "cors";
+import { connectDb } from "./database/db.js";
 
 dotenv.config();
-console.log("has Razorpay_Key?", Boolean(process.env.Razorpay_Key));
-console.log("has Razorpay_Secret?", Boolean(process.env.Razorpay_Secret));
-const razorpayKeyId = process.env.RAZORPAY_KEY_ID;
-const razorpayKeySecret = process.env.RAZORPAY_KEY_SECRET;
-
-console.log("KEY FOUND:", razorpayKeyId);
-console.log("SECRET FOUND:", razorpayKeySecret);
-if (!razorpayKeyId || !razorpayKeySecret) {
-  // Fail fast with a clear message (instead of Razorpay SDK throwing)
-  throw new Error(
-    "Missing Razorpay credentials. Set Razorpay_Key/Razorpay_Secret (or RAZORPAY_KEY_ID/RAZORPAY_KEY_SECRET) in environment variables."
-  );
-}
-
-export const instance = new Razorpay({
-  key_id: razorpayKeyId,
-  key_secret: razorpayKeySecret,
-});
 
 const app = express();
 
 // using middlewares
 app.use(express.json());
 app.use(cors());
-
-const port = Number(process.env.PORT) || 3000;
 
 app.get("/", (req, res) => {
   res.send("Server is working");
@@ -48,7 +27,18 @@ app.use("/api", userRoutes);
 app.use("/api", courseRoutes);
 app.use("/api", adminRoutes);
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const port = Number(process.env.PORT) || 3000;
+
+// Vercel runs this file as a Serverless Function.
+// In that environment you must NOT call app.listen().
+if (process.env.VERCEL !== "1") {
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+    connectDb();
+  });
+} else {
+  // Ensure DB connection is established (cold start). The runtime may be reused.
   connectDb();
-});
+}
+
+export default app;
