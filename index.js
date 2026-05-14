@@ -9,7 +9,16 @@ const app = express();
 
 // using middlewares
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",  // Vite dev server
+      "http://localhost:3000",  // CRA dev server
+      process.env.FRONTEND_URL, // e.g. https://your-frontend.vercel.app
+    ].filter(Boolean),
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Server is working");
