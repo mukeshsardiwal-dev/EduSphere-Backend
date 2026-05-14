@@ -1,0 +1,23 @@
+index.js
+  ae2698017ca4ec6f 9-19,21-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.1",
+  "base_commit_sha": "a374672ec7477bc0db21f5c4d3e3b7ed44fb57a5",
+  "prompts": {
+    "ae2698017ca4ec6f": {
+      "agent_id": {
+        "tool": "DeputyDev",
+        "id": "424389",
+        "model": "AUTO"
+      },
+      "human_author": "Mukesh Sardiwal",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 2,
+      "accepted_lines": 13,
+      "overriden_lines": 0
+    }
+  }
+}
