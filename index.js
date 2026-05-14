@@ -5,11 +5,14 @@ import Razorpay from "razorpay";
 import cors from "cors";
 
 dotenv.config();
-
+console.log("has Razorpay_Key?", Boolean(process.env.Razorpay_Key));
+console.log("has Razorpay_Secret?", Boolean(process.env.Razorpay_Secret));
 const razorpayKeyId = process.env.Razorpay_Key || process.env.RAZORPAY_KEY_ID;
 const razorpayKeySecret =
   process.env.Razorpay_Secret || process.env.RAZORPAY_KEY_SECRET;
 
+console.log("has Razorpay_Key?", Boolean(process.env.Razorpay_Key));
+console.log("has Razorpay_Secret?", Boolean(process.env.Razorpay_Secret));
 if (!razorpayKeyId || !razorpayKeySecret) {
   // Fail fast with a clear message (instead of Razorpay SDK throwing)
   throw new Error(
