@@ -1,0 +1,27 @@
+controllers/course.js
+  ae2698017ca4ec6f 1
+index.js
+  ae2698017ca4ec6f 4,30,32-40,42-44
+services/razorpay.js
+  ae2698017ca4ec6f 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.1",
+  "base_commit_sha": "7f9d41be7c7fc3e39e77bf33e15c0aa435d63a71",
+  "prompts": {
+    "ae2698017ca4ec6f": {
+      "agent_id": {
+        "tool": "DeputyDev",
+        "id": "424389",
+        "model": "AUTO"
+      },
+      "human_author": "Mukesh Sardiwal",
+      "messages": [],
+      "total_additions": 36,
+      "total_deletions": 26,
+      "accepted_lines": 36,
+      "overriden_lines": 0
+    }
+  }
+}
