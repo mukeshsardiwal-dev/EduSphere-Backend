@@ -1,0 +1,23 @@
+database/db.js
+  64d8d4f4a7f08e76 5-11,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.1",
+  "base_commit_sha": "d9d9bd254c4f70babef692e26da4dc2ef1ee48a1",
+  "prompts": {
+    "64d8d4f4a7f08e76": {
+      "agent_id": {
+        "tool": "DeputyDev",
+        "id": "424398",
+        "model": "AUTO"
+      },
+      "human_author": "Mukesh Sardiwal",
+      "messages": [],
+      "total_additions": 9,
+      "total_deletions": 1,
+      "accepted_lines": 8,
+      "overriden_lines": 0
+    }
+  }
+}
